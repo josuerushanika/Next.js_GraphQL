@@ -11,6 +11,11 @@ const startServer = apolloServer.start();
 const cors = Cors(); // Apply Cors middleware here
 
 export default cors(async function (req, res) {
+    if (req.method === 'OPTIONS') {
+        res.end()
+        return false;
+    }
+
   await startServer;
 
   if (req.method === 'OPTIONS') {
