@@ -11,7 +11,9 @@ export const typeDefs = gql `
     imageUrl: String
     users: [String]
    }
+
    type Query {
     links: [Link]!
    }
+  
 `;
