@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import { links } from "../data/links";
-import { link } from "fs";
+
 
 const prisma = new PrismaClient();
 
