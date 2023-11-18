@@ -9,11 +9,11 @@ export const typeDefs = gql `
     url: String
     category: String
     imageUrl: String
-    users: [String]
+    users: [User]
    }
 
    type Query {
-    links: [Link]!
+    getAllLinks: [Link]!
    }
   
 `;
