@@ -1,0 +1,19 @@
+import { gql } from 'apollo-server';
+
+
+export const typeDefs = gql `
+   type Link {
+    id: String
+    title: String
+    description: String
+    url: String
+    category: String
+    imageUrl: String
+    users: [User]
+   }
+
+   type Query {
+    getAllLinks: [Link]!
+   }
+  
+`;
