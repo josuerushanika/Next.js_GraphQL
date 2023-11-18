@@ -1,4 +1,4 @@
-import { objectType } from "nexus";
+import { extendType, objectType } from "nexus";
 import { User } from './User';
 
 export const Link = objectType({
@@ -24,4 +24,14 @@ export const Link = objectType({
         });
     }
     
+})
+
+export const LinksQuery = extendType ({
+    type: 'Query',
+    definition(t) {
+        t.nonNull.list.field('links', {
+            type: 'Link',
+            resolve(_parent, _args, _ctx)
+        })
+    }
 })

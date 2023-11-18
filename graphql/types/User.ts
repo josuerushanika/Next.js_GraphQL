@@ -8,17 +8,23 @@ export const User = objectType({
     t.string("name");
     t.string("email");
     t.string("image");
-    t.list.field("Users", {
-      type: User,
+    t.list.field("bookmarks", {
+      type: Link,
       async resolve(parent, _args, ctx) {
-        return await ctx.prisma.link
-          .findUnique({
-            where: {
-              id: parent.id,
-            },
-          })
-          .users();
+        // Include 'bookmarks' in the selection
+        const user = await ctx.prisma.user.findUnique({
+          where: {
+            id: parent.id,
+          },
+          include: {
+            bookmarks: true,
+          },
+        });
+
+        // Access 'bookmarks' from the included selection
+        return user?.bookmarks;
       },
     });
   },
 });
+
